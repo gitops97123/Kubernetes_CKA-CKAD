@@ -1,2 +1,9 @@
 # KubeOps
-CKA CKAD CKS 
+CKA 
+Certified Kubernetes Administrator 
+
+CKAD 
+Certified Kubernetes Administrator Development 
+
+CKS
+Certified Kubernetes Security
