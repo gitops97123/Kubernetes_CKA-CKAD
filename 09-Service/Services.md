@@ -75,3 +75,52 @@ A full service **yaml** file with service type as Node Port. Try to create one y
         k8s-app: appname
         component: nginx
         env: env_name
+
+# Port Forwarding
+
+In the context of developing applications on Kubernetes, it is often useful to quickly access a service from your local environment without exposing it using, for example, a load balancer or an ingress resource. In these situations, you can use port forwarding.
+
+Let's create an application consisting of a deployment and a service named simpleservice, serving on port 80:
+
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: sise-deploy
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: sise
+      template:
+        metadata:
+          labels:
+            app: sise
+        spec:
+          containers:
+          - name: sise
+            image: quay.io/openshiftlabs/simpleservice:0.5.0
+            ports:
+            - containerPort: 9876
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: simpleservice
+    spec:
+      ports:
+        - port: 80
+          targetPort: 9876
+      selector:
+        app: sise
+
+Let's say we want to access the simpleservice service from the local environment on port 8080. Traffic can be forwarded to your local system using the port-forward subcommand:
+
+    kubectl port-forward service/simpleservice 8080:80
+
+Now we can invoke the service locally like so (using a separate terminal session):
+
+    curl localhost:8080/info
+
+The output should resemble the following:
+
+    {"host": "localhost:8080", "version": "0.5.0", "from": "127.0.0.1"}
