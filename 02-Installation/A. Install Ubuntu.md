@@ -103,10 +103,14 @@ Run these on the master node:
 apply CNI Network :- 
 
     $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+    
     kubernetes-master:~$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
+    
     $ kubectl get pods --all-namespaces
 or 
+    
     $ kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml 
+    
     $ kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
  
 #### Join the Kubernetes cluster
