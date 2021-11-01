@@ -100,6 +100,7 @@ Run these on the master node:
 
  
 #### Deploy a pod network
+apply CNI Network :- 
 
     $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
     kubernetes-master:~$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
