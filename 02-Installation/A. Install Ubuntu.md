@@ -102,17 +102,17 @@ Run these on the master node:
 #### Deploy a pod network
 apply CNI Network :- 
 
-    $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-    
-    kubernetes-master:~$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
-    
+    $ curl https://docs.projectcalico.org/manifests/calico-typha.yaml -o calico.yaml
     $ kubectl get pods --all-namespaces
 or 
     
-    $ kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml 
-    
+    $ kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
     $ kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
- 
+  
+#### If coreDNS not creating container then delete the pod and redeploy
+    $  kubectl delete pod   coredns-78fcd69978-zml9m -n kube-system
+    
+    
 #### Join the Kubernetes cluster
 Run these from the worker node:
 
