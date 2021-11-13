@@ -103,6 +103,7 @@ Run these on the master node:
 apply CNI Network :- 
 
     $ curl https://docs.projectcalico.org/manifests/calico-typha.yaml -o calico.yaml
+    $ kubectl apply -f calico.yaml
     $ kubectl get pods --all-namespaces
 or 
     
