@@ -4,9 +4,9 @@ metadata:
 name: countdown
 spec:
 template:
-    metadata:
+  metadata:
     name: countdown
-    spec:
+  spec:
     containers:
     - name: counter
         image: centos:7
