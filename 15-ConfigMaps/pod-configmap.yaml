@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test2
+spec:
+  restartPolicy: Never
+  volumes:
+  - name: vol
+    configMap:
+      name: special-config
+  containers:
+  - name: test
+    image: centos:7
+    command:
+      - "/bin/bash"
+      - "-c"
+      - "sleep 22999"
+    env:
+    - name: SPECIAL_LEVEL_KEY
+      valueFrom:
+        configMapKeyRef:
+          name: special-config
+          key: special.how
+          optional: true
+    volumeMounts:
+      - name: vol
+        mountPath: /tmp/special

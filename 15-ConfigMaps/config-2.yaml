@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: default
+  name: env-config
+data:
+  log.level: INFO
