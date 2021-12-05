@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-cip-service
+  name: apps.service
 spec:
   type: ClusterIP
   # Uncomment the below line to create a Headless Service
