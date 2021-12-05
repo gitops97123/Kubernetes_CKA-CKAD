@@ -1,0 +1,17 @@
+kind: Pod
+apiVersion: v1 
+metadata: 
+  name: pod-vol2
+spec: 
+  containers: 
+  - image: nginx 
+    name: web
+    ports: 
+    - containerPort: 80 
+    volumeMounts: 
+    - mountPath: "/tmp/container" 
+      name: pv0001 
+  volumes: 
+  - name: pv0001 
+    persistentVolumeClaim: 
+      claimName: myclaim
