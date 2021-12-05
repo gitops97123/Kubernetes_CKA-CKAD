@@ -1,0 +1,14 @@
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: pod-a 
+  labels: 
+    app: dev 
+spec: 
+  nodeName: classroom
+  containers: 
+  - image: nginx 
+    name: webimage
+    ports: 
+    - containerPort: 80 
+
