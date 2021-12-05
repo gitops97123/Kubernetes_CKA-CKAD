@@ -57,10 +57,10 @@ We will use the same yaml which we used to create the job and make it a schedule
           - name: countdown
             image: python
             args:
-            - "/bin/sh" 
-            - "-c"
-            - "ps –eaf"  
-          restartPocliy: OnFailure
+             - "/bin/sh" 
+             - "-c"
+             - "ps –eaf"  
+          restartPolicy: OnFailure
 
 In the above code, we have defined −
 
