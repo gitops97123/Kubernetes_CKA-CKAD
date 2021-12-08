@@ -17,4 +17,4 @@ spec:
       max: 
         cpu: 700m 
         memory: 700Mi
-      type: Container
+      type: Container 
