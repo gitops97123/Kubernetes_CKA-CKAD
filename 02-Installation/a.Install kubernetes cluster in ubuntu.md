@@ -47,7 +47,7 @@ Once the Servers are rebooted, add the Kubernetes repository for Ubuntu 20.04 to
 
     $ sudo apt update
     $ sudo apt -y install vim git curl wget kubelet kubeadm  kubectl
-    $ sudo apt-mark hold kubelet kubeadm kubectl docker
+    $ sudo apt-mark hold kubelet kubeadm kubectl 
     $ kubectl version --client && kubeadm version 
 
  
