@@ -85,7 +85,8 @@ Turn off swap.
     "storage-driver": "overlay2"
     }
     EOF
-    $ sudo systemctl enable --now docker kubelet
+    $ sudo systemctl enable --now docker kubelet 
+    $ sudo systemctl restart docker kubelet
 
  
 #### Initialize Kubernetes master server
