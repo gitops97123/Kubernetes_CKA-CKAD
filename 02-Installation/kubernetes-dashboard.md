@@ -67,3 +67,5 @@ It should print something like:
 Now copy the token and paste it into the Enter token field on the login screen.
 
 ![image](https://user-images.githubusercontent.com/92106894/173192806-653515b6-bca9-4548-a97d-4c240494f519.png)
+
+![image](https://github.com/gitops97123/Kubernetes_CKA-CKAD/blob/main/02-Installation/login.png)
