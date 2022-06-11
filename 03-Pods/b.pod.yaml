@@ -1,14 +1,43 @@
-apiVersion: v1 
-kind: Pod 
-metadata: 
-  name: pod-a 
-  labels: 
-    app: dev 
-spec: 
-  nodeName: classroom
-  containers: 
-  - image: nginx 
-    name: webimage
-    ports: 
-    - containerPort: 80 
 
+
+## Creating Pod example #1 
+
+Open new text file. 
+
+    $ vi pod.yaml 
+
+copy the content code and paste it. 
+
+    apiVersion: v1 
+    kind: Pod 
+    metadata: 
+      name: pod-a 
+      labels: 
+        app: dev 
+      spec: 
+        containers: 
+        - image: nginx 
+          name: webimage
+          ports: 
+          - containerPort: 80 
+
+
+## explaination: 
+
+    apiVersion: v1              <--- a/c to the kubernetes version 
+    kind: Pod                   <---desire you want to create 
+    metadata:             <materials declaration>
+      name: pod-a               <---podname
+      labels:             <labels declaration>
+        app: dev                <-key=value>
+      spec:               <container declaration>        
+        containers:             <container definitions>
+        - image: nginx          <--docker image name 
+          name: webimage        <--container name you want to create 
+          ports:                <port declaration>
+          - containerPort: 80   <--expose port no. 80
+
+
+
+
+    
