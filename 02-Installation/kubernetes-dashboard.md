@@ -34,7 +34,7 @@ We are creating Service Account with the name admin-user in namespace kubernetes
     apiVersion: v1
     kind: ServiceAccount
     metadata:
-      name: admin-user
+      name: kubernetes-dashboard
       namespace: kubernetes-dashboard
 
 ## Creating a ClusterRoleBinding
@@ -51,14 +51,14 @@ In most cases after provisioning the cluster using kops, kubeadm or any other po
       name: cluster-admin
     subjects:
     - kind: ServiceAccount
-      name: admin-user
+      name: kubernetes-dashboard
       namespace: kubernetes-dashboard
 
 ## Getting a Bearer Token
 
 Now we need to find the token we can use to log in. Execute the following command:
 
-    kubectl -n kubernetes-dashboard create token admin-user
+    kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
 
 It should print something like:
     
