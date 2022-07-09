@@ -45,7 +45,7 @@ Once the Servers are rebooted, add the Kubernetes repository for Ubuntu 20.04 to
     $ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
     $ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
     $ sudo apt update
-    $ sudo apt -y install vim git curl wget kubelet=1.23.0-00 kubeadm=1.23.0-00  kubectl=1.23.0-00
+    $ sudo apt -y install vim git curl wget kubelet=1.20.0-00 kubeadm=1.20.0-00  kubectl=1.20.0-00
     $ sudo apt-mark hold kubelet kubeadm kubectl 
     $ kubectl version --client && kubeadm version 
 
@@ -90,7 +90,7 @@ Turn off swap.
     $ sudo systemctl restart containerd
     $ sudo systemctl enable containerd
 
-    $ sudo kubeadm config images pull --cri-socket /run/containerd/containerd.sock --kubernetes-version v1.23.0
+    $ sudo kubeadm config images pull --cri-socket /run/containerd/containerd.sock --kubernetes-version v1.20.0
 
 
 #### Install Docker. 
@@ -115,7 +115,7 @@ Turn off swap.
 
 Run these on the master node:
 
-    kubernetes-master:~$ sudo kubeadm init   --pod-network-cidr=10.244.0.0/16   --upload-certs --kubernetes-version=v1.23.0   --control-plane-endpoint=MASTERIP --ignore-preflight-errors=Mem  --cri-socket /run/containerd/containerd.sock
+    kubernetes-master:~$ sudo kubeadm init   --pod-network-cidr=10.244.0.0/16   --upload-certs --kubernetes-version=v1.20.0   --control-plane-endpoint=MASTERIP --ignore-preflight-errors=Mem  --cri-socket /run/containerd/containerd.sock
 
     kubernetes-master:~$ mkdir -p $HOME/.kube
     kubernetes-master:~$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
