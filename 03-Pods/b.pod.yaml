@@ -2,40 +2,62 @@
 
 ## Creating Pod example #1 
 
-Open new text file. 
+    root@master1:~/pods# cat pod.yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: envs
+    spec:
+      containers:
+      - name: sise
+        #    image: quay.io/openshiftlabs/simpleservice:0.5.0
+        image: mysql:5.6
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "redhat"
+        - name: MYSQL_USER_PASSWORD
+          value: "redhat"
+        - name: MYSQL_USER
+          value: "redhat"
+        - name: MYSQL_DATABASES
+          value: "redhat"
 
-    $ vi pod.yaml 
+## Applying pod 
+    root@master1:~/pods# kubectl apply -f pod.yaml
+    pod/envs created
 
-copy the content code and paste it. 
+## listing pods status 
 
-    apiVersion: v1 
-    kind: Pod 
-    metadata: 
-      name: pod-a 
-      labels: 
-        app: dev 
-      spec: 
-        containers: 
-        - image: nginx 
-          name: webimage
-          ports: 
-          - containerPort: 80 
+    root@master1:~/pods# kubectl get pods
+    NAME   READY   STATUS    RESTARTS   AGE
+    envs   1/1     Running   0          4s
+
+## let login pod inside.
+
+    root@master1:~/pods# kubectl exec -it envs -- bash
+    root@envs:/# mysql -u root -predhat
+    ...
+    mysql> show databases;
+    +--------------------+
+    | Database           |
+    +--------------------+
+    | information_schema |
+    | mysql              |
+    | performance_schema |
+    +--------------------+
+    3 rows in set (0.00 sec)
+    mysql> exit
+    Bye
+
+## deleting the pod.
+
+    root@master1:~/pods# kubectl delete -f pod.yaml
+    pod "envs" deleted
 
 
-## explaination: 
 
-    apiVersion: v1              <--- a/c to the kubernetes version 
-    kind: Pod                   <---desire you want to create 
-    metadata:             <materials declaration>
-      name: pod-a               <---podname
-      labels:             <labels declaration>
-        app: dev                <-key=value>
-      spec:               <container declaration>        
-        containers:             <container definitions>
-        - image: nginx          <--docker image name 
-          name: webimage        <--container name you want to create 
-          ports:                <port declaration>
-          - containerPort: 80   <--expose port no. 80
 
 
 
