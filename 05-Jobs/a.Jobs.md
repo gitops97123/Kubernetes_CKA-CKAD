@@ -5,20 +5,20 @@ A job in Kubernetes is a supervisor for pods that run for a certain time to comp
     apiVersion: batch/v1
     kind: Job
     metadata:
-    name: countdown
+      name: countdown
     spec:
-    template:
+      template:
         metadata:
-        name: countdown
+          name: countdown
         spec:
-        containers:
-        - name: counter
+          containers:
+          - name: counter
             image: centos:7
             command:
-            - "bin/bash"
-            - "-c"
-            - "for i in 9 8 7 6 5 4 3 2 1 ; do echo $i ; done"
-        restartPolicy: Never
+             - "bin/bash"
+             - "-c"
+             - "for i in 9 8 7 6 5 4 3 2 1 ; do echo $i ; done"
+          restartPolicy: Never
 
 In the above code, we have defined −
 
@@ -50,17 +50,17 @@ We will use the same yaml which we used to create the job and make it a schedule
     spec:
     schedule: h/30 * * * * ? 
     template:
-        metadata
-            name: countdown
-        spec:
-          containers:
-          - name: countdown
-            image: python
-            args:
-             - "/bin/sh" 
-             - "-c"
-             - "ps –eaf"  
-          restartPolicy: OnFailure
+      metadata
+        name: countdown
+      spec:
+        containers:
+        - name: countdown
+          image: python
+          args:
+            - "/bin/sh" 
+            - "-c"
+            - "ps –eaf"  
+        restartPolicy: OnFailure
 
 In the above code, we have defined −
 
