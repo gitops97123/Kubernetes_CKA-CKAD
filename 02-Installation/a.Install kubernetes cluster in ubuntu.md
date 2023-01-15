@@ -201,7 +201,7 @@ apply CNI Network :-
 
   
 #### If coreDNS not creating container then delete the pod and redeploy
-    $  kubectl delete pod   coredns-78fcd69978-zml9m -n kube-system
+   root@devops-lab:~#  kubectl delete pod   coredns-78fcd69978-zml9m -n kube-system
     
 
 #### Join the Kubernetes cluster
