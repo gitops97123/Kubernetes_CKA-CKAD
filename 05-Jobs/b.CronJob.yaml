@@ -1,19 +1,19 @@
+root@master1:~/jobs# cat cron-pod.yaml
+
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: hello
+  name: working
 spec:
-  schedule: "*/1 * * * *"
-  jobTemplate:
+  JobTemplate:
+    metadata:
+      name: working
     spec:
-      template:
-        spec:
-          containers:
-          - name: hello
-            image: busybox
-            imagePullPolicy: IfNotPresent
-            command:
-            - /bin/sh
-            - -c
-            - date; echo Hello from the Kubernetes cluster
-          restartPolicy: OnFailure
+      containers:
+      - name: working
+        image: python
+        args:
+        - "/bin/sh"
+        - "-c"
+        - "ps –eaf"
+      restartPolicy: OnFailure
