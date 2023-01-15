@@ -14,11 +14,11 @@ In the above code, we have defined −
     metadata:
     name: Tesing_kubernetes_images 
     spec:
-        containers:
-        - name: nginx
-          image: <Name of the Docker image>
-          imagePullPolicy: Always
-          command: ["echo", "SUCCESS"] 
+      containers:
+      - name: nginx
+        image: <Name of the Docker image>
+        imagePullPolicy: Always
+        command: ["echo", "SUCCESS"] 
 
 
 - **name: Tesing_kubernetes_images** − This name is given to identify and check what is the name of the container that would get created after pulling the images from Docker registry.
