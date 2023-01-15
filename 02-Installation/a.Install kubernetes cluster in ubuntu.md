@@ -193,6 +193,7 @@ Run these on the master node:
 
  
 #### Deploy a pod network
+
 apply CNI Network :- 
 
    root@devops-lab:~# curl https://docs.projectcalico.org/manifests/calico-typha.yaml -o calico.yaml
