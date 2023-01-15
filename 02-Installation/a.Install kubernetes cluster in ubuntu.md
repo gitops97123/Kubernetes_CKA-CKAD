@@ -193,6 +193,7 @@ Run these on the master node:
 
  
 #### Deploy a pod network
+
 apply CNI Network :- 
 
     root@devops-lab:~# curl https://docs.projectcalico.org/manifests/calico-typha.yaml -o calico.yaml
@@ -201,7 +202,7 @@ apply CNI Network :-
 
   
 #### If coreDNS not creating container then delete the pod and redeploy
-    $  kubectl delete pod   coredns-78fcd69978-zml9m -n kube-system
+   root@devops-lab:~#  kubectl delete pod   coredns-78fcd69978-zml9m -n kube-system
     
 
 #### Join the Kubernetes cluster
