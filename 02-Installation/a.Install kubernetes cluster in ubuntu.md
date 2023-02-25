@@ -11,7 +11,7 @@ There are two server types used in deployment of Kubernetes clusters:
 
 #### Prerequisites Specifications
 
-The minimum requirements for the viable setup are:
+The minimum requirements for the available setup are:
 Memory: 2 GiB or more of RAM per machine
 CPUs: At least 2 CPUs on the control plane machine.
 Internet connectivity for pulling containers required (Private registry can also be used)
@@ -192,7 +192,7 @@ Run these on the master node:
 
 
  
-#### Deploy a pod network
+#### Step 11: Deploy a pod network
 
 apply CNI Network :- 
 
@@ -201,11 +201,11 @@ apply CNI Network :-
     root@devops-lab:~# kubectl get pods --all-namespaces
 
   
-#### If coreDNS not creating container then delete the pod and redeploy
+#### Step 12: If coreDNS not creating container then delete the pod and redeploy
     root@devops-lab:~#  kubectl delete pod   coredns-78fcd69978-zml9m -n kube-system
     
 
-#### Join the Kubernetes cluster
+#### Step 13: Join the Kubernetes cluster
 Run these from the worker node:
 
     kubernetes-worker:~$ sudo kubeadm join 192.168.122.219:6443 --token 1exb8s.2t4k3b5syfc3jfmo --discovery-token-ca-cert-hash sha256:72ad481cee4918cf2314738419356c9a402fb609263adad48c13797d0cba2341
