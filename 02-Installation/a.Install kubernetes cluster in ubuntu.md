@@ -196,8 +196,8 @@ Run these on the master node:
 
 apply CNI Network :- 
 
-    root@devops-lab:~# curl https://docs.projectcalico.org/manifests/calico-typha.yaml -o calico.yaml
-    root@devops-lab:~# kubectl apply -f calico.yaml
+    root@devops-lab:~# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
+    root@devops-lab:~# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/custom-resources.yaml 
     root@devops-lab:~# kubectl get pods --all-namespaces
 
   
