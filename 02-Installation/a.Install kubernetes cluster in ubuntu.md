@@ -187,8 +187,8 @@ Run these on the master node:
     root@devops-lab:~# sudo kubeadm init   --pod-network-cidr=10.244.0.0/16   --upload-certs    --control-plane-endpoint=MASTERIP  --cri-socket /var/run/crio/crio.sock
 
     root@devops-lab:~# mkdir -p $HOME/.kube
-    root@devops-lab:~#  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-    root@devops-lab:~#  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    root@devops-lab:~# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    root@devops-lab:~# sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
  
@@ -202,7 +202,7 @@ apply CNI Network :-
 
   
 #### Step 12: If coreDNS not creating container then delete the pod and redeploy
-    root@devops-lab:~#  kubectl delete pod   coredns-78fcd69978-zml9m -n kube-system
+    root@devops-lab:~# kubectl delete pod   coredns-78fcd69978-zml9m -n kube-system
     
 
 #### Step 13: Join the Kubernetes cluster
