@@ -58,7 +58,7 @@ In most cases after provisioning the cluster using kops, kubeadm or any other po
 
 Now we need to find the token we can use to log in. Execute the following command:
 
-    kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+    kubectl -n kubernetes-dashboard create token kubernetes-dashboard
 
 It should print something like:
     
