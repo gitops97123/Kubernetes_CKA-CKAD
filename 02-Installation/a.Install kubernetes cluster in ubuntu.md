@@ -1,7 +1,7 @@
  
 #### Overview
 
-Kubernetes is a tool for orchestrating and managing Docker containers at scale on on-prem server or across hybrid cloud environments. Kubeadm is a tool provided with Kubernetes to help users install a production ready Kubernetes cluster with best practices enforcement. This tutorial will demonstrate how one can install a Kubernetes Cluster on Ubuntu 20.04 with kubeadm.
+Kubernetes is a tool for orchestrating and managing Docker containers at scale on on-prem server or across hybrid cloud environments. Kubeadm is a tool provided with Kubernetes to help users install a production ready Kubernetes cluster with best practices enforcement. This tutorial will demonstrate how one can install a Kubernetes Cluster on Ubuntu 22.04 with kubeadm.
 
 #### Goals
 There are two server types used in deployment of Kubernetes clusters:
@@ -20,7 +20,7 @@ Full network connectivity between machines in the cluster – This is private or
  
 #### Installation
 
-My Lab setup contains two servers. One control plane machine and one node to be used for running containerized workloads. You can add more nodes to suit your desired use case and load, for example using three control plane nodes for HA.
+My Lab setup contains two servers. One control plane machine and one node to be used for running containerized workloads.
 
 |Server Type | Server Hostname | Specs|
 |------------|-----------------|-------|
