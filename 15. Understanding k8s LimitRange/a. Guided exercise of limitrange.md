@@ -4,9 +4,9 @@ Users may want to impose restrictions on the amount of resources a single pod in
 
 For example:
 
-    Each node in the cluster has 2GB of memory. The cluster operator does not want to accept pods that require more than 2GB of memory since no node in the cluster can support the requirement. To prevent a pod from being permanently unscheduled to a node, the operator instead chooses to reject pods that exceed 2GB of memory as part of admission control.
-    A cluster is shared by two communities in an organization that runs production and development workloads respectively. Production workloads may consume up to 8GB of memory, but development workloads may consume up to 512MB of memory. The cluster operator creates a separate namespace for each workload, and applies limits to each namespace.
-    Users may create a pod which consumes resources just below the capacity of a machine. The left over space may be too small to be useful, but big enough for the waste to be costly over the entire cluster. As a result, the cluster operator may want to set limits that a pod must consume at least 20% of the memory and CPU of their average node size in order to provide for more uniform scheduling and limit waste.
+  Each node in the cluster has 2GB of memory. The cluster operator does not want to accept pods that require more than 2GB of memory since no node in the cluster can support the requirement. To prevent a pod from being permanently unscheduled to a node, the operator instead chooses to reject pods that exceed 2GB of memory as part of admission control.
+  A cluster is shared by two communities in an organization that runs production and development workloads respectively. Production workloads may consume up to 8GB of memory, but development workloads may consume up to 512MB of memory. The cluster operator creates a separate namespace for each workload, and applies limits to each namespace.
+  Users may create a pod which consumes resources just below the capacity of a machine. The left over space may be too small to be useful, but big enough for the waste to be costly over the entire cluster. As a result, the cluster operator may want to set limits that a pod must consume at least 20% of the memory and CPU of their average node size in order to provide for more uniform scheduling and limit waste.
 
 This example demonstrates how limits can be applied to a Kubernetes namespace to control min/max resource limits per pod. In addition, this example demonstrates how you can apply default resource limits to pods in the absence of an end-user specified value.
 
@@ -23,9 +23,9 @@ Change to the <kubernetes> directory if you're not already there.
 This example will work in a custom namespace to demonstrate the concepts involved.
 
 Let's create a new namespace called limit-example:
-
+    
     $ kubectl create namespace limit-example
-    namespace "limit-example" created
+      namespace "limit-example" created
 
 Note that kubectl commands will print the type and name of the resource created or mutated, which can then be used in subsequent commands:
 
@@ -34,7 +34,7 @@ Note that kubectl commands will print the type and name of the resource created 
     default         Active    1s
     limit-example   Active    5s
 
-Step 2: Apply a limit to the namespace
+## Step 2: Apply a limit to the namespace
 
 Let's create a simple limit in our namespace.
 
