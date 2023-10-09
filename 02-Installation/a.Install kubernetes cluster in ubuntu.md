@@ -184,7 +184,7 @@ The command line tool crioctl can be installed through cri-tools package.
 
 Run these on the master node:
 
-    root@devops-lab:~# sudo kubeadm init   --pod-network-cidr=10.244.0.0/16   
+    root@devops-lab:~# sudo kubeadm init   --pod-network-cidr=10.244.0.0/16 --cri-socket /var/run/crio/crio.sock 
     root@devops-lab:~# mkdir -p $HOME/.kube
     root@devops-lab:~# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     root@devops-lab:~# sudo chown $(id -u):$(id -g) $HOME/.kube/config
