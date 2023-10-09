@@ -176,7 +176,7 @@ The command line tool crioctl can be installed through cri-tools package.
     }
 #### Step 9: pull the container images 
 
-    root@devops-lab:~# sudo kubeadm config images pull --cri-socket /var/run/crio/crio.sock --kubernetes-version v1.26.0
+    root@devops-lab:~# sudo kubeadm config images pull --cri-socket /var/run/crio/crio.sock 
 
 
  
