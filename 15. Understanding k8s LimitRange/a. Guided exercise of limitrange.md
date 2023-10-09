@@ -49,14 +49,14 @@ Let's create a simple limit in our namespace.
     spec:
     	limits:
     		- default:
-    			  cpu: 100mi
+    			  cpu: 300mi
     			  memory: 200mi
     		  defaultRequest:
     		    cpu: 200mi
     			  memory: 100mi
     		  min:
-    		    cpu: 100mi
-    			  memory: 3mi
+    		    cpu: 100m
+    			  memory: 3Mi
     		  max:
     		    cpu: 2
     			  memory: 1Gi
