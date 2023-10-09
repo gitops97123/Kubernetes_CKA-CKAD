@@ -72,8 +72,6 @@ Let's describe the limits that we have imposed in our namespace.
     Namespace:  limit-example
     Type        Resource      Min      Max      Default Request      Default Limit      Max Limit/Request Ratio
     ----        --------      ---      ---      ---------------      -------------      -----------------------
-    Pod         cpu           200m     2        -                    -                  -
-    Pod         memory        6Mi      1Gi      -                    -                  -
     Container   cpu           100m     2        200m                 300m               -
     Container   memory        3Mi      1Gi      100Mi                200Mi              -
 
