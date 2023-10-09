@@ -1,8 +1,11 @@
+# Limit Range 
+
+
 By default, pods run with unbounded CPU and memory limits. This means that any pod in the system will be able to consume as much CPU and memory on the node that executes the pod.
 
 Users may want to impose restrictions on the amount of resources a single pod in the system may consume for a variety of reasons.
 
-For example:
+### For example:
 
   Each node in the cluster has 2GB of memory. The cluster operator does not want to accept pods that require more than 2GB of memory since no node in the cluster can support the requirement. To prevent a pod from being permanently unscheduled to a node, the operator instead chooses to reject pods that exceed 2GB of memory as part of admission control.
   A cluster is shared by two communities in an organization that runs production and development workloads respectively. Production workloads may consume up to 8GB of memory, but development workloads may consume up to 512MB of memory. The cluster operator creates a separate namespace for each workload, and applies limits to each namespace.
@@ -10,7 +13,6 @@ For example:
 
 This example demonstrates how limits can be applied to a Kubernetes namespace to control min/max resource limits per pod. In addition, this example demonstrates how you can apply default resource limits to pods in the absence of an end-user specified value.
 
-See LimitRange design doc for more information. For a detailed description of the Kubernetes resource model, see Resources
 
 ## Step 0: Prerequisites
 
