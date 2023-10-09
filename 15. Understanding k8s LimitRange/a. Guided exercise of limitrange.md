@@ -40,7 +40,29 @@ Note that kubectl commands will print the type and name of the resource created 
 
 Let's create a simple limit in our namespace.
 
-    $ kubectl create -f docs/admin/limitrange/limits.yaml --namespace=limit-example
+    $ cat limitrange/limits.yaml
+    apiVersion: v1
+    kind: LimitRange
+    metadata:
+    	name: mylimits
+    	namespace: limit-example
+    spec:
+    	limits:
+    		- default:
+    			  cpu: 100mi
+    			  memory: 200mi
+    		  defaultRequest:
+    		    cpu: 200mi
+    			  memory: 100mi
+    		  min:
+    		    cpu: 100mi
+    			  memory: 3mi
+    		  max:
+    		    cpu: 2
+    			  memory: 1Gi
+    		  type: Container
+    
+    $ kubectl create -f limitrange/limits.yaml --namespace=limit-example
     limitrange "mylimits" created
 
 Let's describe the limits that we have imposed in our namespace.
