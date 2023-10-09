@@ -1,16 +1,50 @@
+## Single Container Pod
 
+As the name suggests, if there is only a single container running in the Kubernetes pod, then it is called a single container pod and it can easily be created with the help of a YAML file. Here is a sample YAML file used to create a pod with the postgres database. 
 
-## Creating Pod example #1 
+    apiVersion: v1 
+    kind: Pod 
+    metadata: 
+      name: Postgres 
+    spec: 
+      containers: 
+      - name: Postgres 
+        image: Postgres: 3.1 
+        ports: 
+        - containerPort: 8000 
+        imagePullPolicy: Always 
+
+## Multi Container Pod
+
+In this type of pod, we can run multiple containers within a single pod. It can be created by specifying the containers in the same YAML file. Here is a sample YAML file used to create a multi container Pod with Tomcat and MongoDB images.
+
+    apiVersion: v1 
+    kind: Pod 
+    metadata: 
+    name: Tomcat 
+    spec: 
+      containers: 
+      - name: Tomcat 
+        image: tomcat: 8.0 
+        ports: 
+        - containerPort: 7500 
+        imagePullPolicy: Always 
+      - name: Database 
+        image: mongoDB 
+        ports: 
+        - containerPort: 7501 
+        imagePullPolicy: Always 
+
+## Creating Pod example 
 
     root@master1:~/pods# cat pod.yaml
     apiVersion: v1
     kind: Pod
     metadata:
-      name: envs
+      name: mysql
     spec:
       containers:
-      - name: sise
-        #    image: quay.io/openshiftlabs/simpleservice:0.5.0
+      - name: sqlimage
         image: mysql:5.6
         ports:
         - containerPort: 3306
@@ -26,18 +60,18 @@
 
 ## Applying pod 
     root@master1:~/pods# kubectl apply -f pod.yaml
-    pod/envs created
+    pod/mysql created
 
 ## listing pods status 
 
     root@master1:~/pods# kubectl get pods
     NAME   READY   STATUS    RESTARTS   AGE
-    envs   1/1     Running   0          4s
+    mysql   1/1     Running   0          4s
 
 ## let login pod inside.
 
-    root@master1:~/pods# kubectl exec -it envs -- bash
-    root@envs:/# mysql -u root -predhat
+    root@master1:~/pods# kubectl exec -it mysql -- bash
+    root@mysql:/# mysql -u root -predhat
     ...
     mysql> show databases;
     +--------------------+
@@ -54,7 +88,7 @@
 ## deleting the pod.
 
     root@master1:~/pods# kubectl delete -f pod.yaml
-    pod "envs" deleted
+    pod "mysql" deleted
 
 
 
