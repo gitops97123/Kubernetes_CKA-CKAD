@@ -17,7 +17,7 @@ Let's launch a pod that we pass an environment variable SIMPLE_SERVICE_VERSION w
         - containerPort: 9876
         env:
         - name: SIMPLE_SERVICE_VERSION
-        value: "1.0"
+          value: "1.0"
  
 Now, let's verify from within the cluster if the application running in the pod has picked up the environment variable:
  
@@ -50,8 +50,8 @@ In order to create secrets from a text file such as user name and password, we f
     name: tomcat-pass
     type: Opaque
     data:
-    password: <User Password>
-    username: <User Name>
+    password: abcd001
+    username: redhat
 
 ## Creating the Secret
 
@@ -75,7 +75,9 @@ In order to use the secret as environment variable, we will use env under the sp
         secretKeyRef:
             name: mysecret
             key: tomcat-pass
-    As Volume
+
+As Volume
+
     spec:
     volumes:
         - name: "secretstest"
@@ -95,7 +97,7 @@ Secret Configuration As Environment Variable
     metadata:
     name: appname
     spec:
-    replicas: replica_count
+    replicas: 2
     template:
     metadata:
         name: appname
@@ -108,12 +110,12 @@ Secret Configuration As Environment Variable
                 imagePullPolicy: Always
                 ports:
                 - containerPort: 3000
-                env: -----------------------------> 1
+                env: 
                 - name: ENV
                     valueFrom:
-                        configMapKeyRef:
-                            name: appname
-                            key: tomcat-secrets
+                      configMapKeyRef:
+                        name: appname
+                        key: tomcat-secrets
 
 In the above code, under the env definition, we are using secrets as environment variable in the replication controller.
 
